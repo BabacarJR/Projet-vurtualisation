@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  worker:
+    build:
+      context: ./worker/
+      dockerfile: Dockerfile
+    network_mode: back-tier
+
+  vote:
+    build:
+      context: ./vote/
+      dockerfile: Dockerfile
+    network_mode: front-tier
+
+  seed-data:
+    build:
+      context: ./seed-data/
+      dockerfile: Dockerfile
+    network_mode: front-tier
+
+  result:
+    build:
+      context: ./result/
+      dockerfile: Dockerfile
+    network_mode: back-tier
